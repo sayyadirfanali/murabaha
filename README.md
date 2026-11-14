@@ -10,23 +10,24 @@ A Murabaha is a Shariah-compliant sale on deferred payment. It follows specific 
 2. The total sale price (**cost** plus markup) is fixed when the contract is signed and cannot increase over time.
 3. If the buyer pays late, a contract may require a **late-payment penalty** to deter default, but that money must go to charity—never to the bank as extra profit.
 
-## Need
+## Why we need to formalise
 
 In a proper Murabaha, the bank's profit comes from a trade sale, so the price must not grow when a buyer is late, and any deterrent penalty belongs to charity rather than the bank.
-
-However, when a contract is drafted by adapting standard banking templates, a clause that looks routine in a conventional loan can quietly break these Shariah rules when payments are late or settled early:
-
-- **Payment allocation:** Conventional loan contracts often apply each payment first to fees and charges, and only then to the amount borrowed. Copied into a Murabaha, such a clause pays charity penalties before the sale price, causing later instalments to fall short.
-- **Early settlement:** A standard payoff clause often requires the buyer to settle everything still owed under the agreement. In a Murabaha, if the bank collects every unpaid amount at settlement, penalties owed to charity end up with the bank.
 
 Two real-world examples show how small wording differences around price, profit, and late charges create major problems:
 
 - **Compounding Late Fees (USA):** Applying a new payment to old late fees before paying the scheduled instalment (which causes the new instalment to fall short and trigger another late fee) is a practice known as **pyramiding late fees**. It is banned in US consumer credit under the Federal Trade Commission's Credit Practices Rule (16 CFR Part 444). In 2016 a US appeals court held that a lender broke Maryland law in exactly this way: its loan note applied each payment "first to late charges, then to accrued interest, and then to the principal."
+
 - **Earned vs Unearned Profit (Malaysia):** In *Affin Bank Bhd v Zulkifli bin Abdullah* (decided 2005), a buyer financed a house of about RM394,000 under a deferred-sale facility and defaulted after paying about RM33,000. The bank claimed the full deferred sale price of about RM959,000, which included profit for future years that had not yet elapsed. The High Court held that profit for unexpired tenure was unearned and reduced the bank's claim to about RM583,000.
 
-This model covers the two clauses above. It does not cover the Malaysian issue, which concerns rebates of profit on early settlement.
+When a Murabaha is drafted by adapting standard banking templates, a clause that looks routine in a conventional loan can quietly break these Shariah rules when payments are late or settled early:
 
-Turning a clause into the model is done by hand: I read each clause, decided what it means, and wrote that meaning as a rule in Lean. The proof assistant then checks every consequence of those rules, but it does not check that I read the clause correctly. That step is open to review, and is the reason the rules are spelled out in plain words below.
+- **Payment allocation:** Conventional loan contracts often apply each payment first to fees and charges, and only then to the amount borrowed. Copied into a Murabaha, such a clause pays charity penalties before the sale price, causing later instalments to fall short.
+- **Early settlement:** A standard payoff clause often requires the buyer to settle everything still owed under the agreement. In a Murabaha, if the bank collects every unpaid amount at settlement, penalties owed to charity end up with the bank.
+
+This model covers these two clauses. It does not cover the Malaysian issue, which concerns rebates of profit on early settlement.
+
+Each clause is turned into a rule in Lean by hand. Lean checks everything that follows from the rules, but not whether the clause was read correctly, which is why the rules are also stated in plain words below.
 
 ## Findings
 
@@ -145,7 +146,9 @@ lake build
 - **AAOIFI**, *Shari'ah Standard No. 8: Murabahah* (Accounting and Auditing Organization for Islamic Financial Institutions).
 - **OIC International Islamic Fiqh Academy**, *Resolution No. 40–41 (2/5 & 3/5)*, 5th Session, Kuwait, 1988 (on binding promises and Murabaha to the purchase orderer).
 - ***Affin Bank Bhd v Zulkifli bin Abdullah*** [2006] 3 MLJ 67, High Court, Kuala Lumpur (decided 29 December 2005).
+- ***Arab-Malaysian Finance Bhd v Taman Ihsan Jaya Sdn Bhd & Ors*** [2008] 5 MLJ 631 / [2009] 1 CLJ 419, High Court, Kuala Lumpur.
 - **US Federal Trade Commission**, *Credit Practices Rule*, 16 CFR Part 444 (prohibiting pyramiding of late charges).
+- **US Court of Appeals for the Fourth Circuit** (2016), ruling on pyramiding late fees under Maryland closed-end credit law; [case summary by Weiner Brodsky Kider PC](https://www.thewbkfirm.com/industry/fourth-circuit-holds-that-creditors-violate-maryland-closed-end-credit-provisions-by-pyramiding-late-fees).
 
 ## Authorship
 
@@ -159,12 +162,7 @@ I have personally reviewed every definition and proof in the Lean file and verif
 
 ## Contact
 
-Irfan Ali | [irfanali.org](https://irfanali.org)
-
-Corrections are welcome, especially regarding my reading of the statutes.
-
-Please open an issue on GitHub or email me.
-
+Irfan Ali | irfanali.org
 
 ## Licence
 
