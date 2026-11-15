@@ -30,6 +30,8 @@ Each faulty variant fails exactly one check, so a reviewer who checks only one r
 
 ## Model
 
+The definitions are in `Murabaha/Model.lean`.
+
 A contract's `Terms` consist of three natural numbers and a list: `cost`, `markup` (with `price = cost + markup`), a fixed per-default `latePenalty`, and an instalment `schedule` (in a `WellFormed` contract, `schedule.sum = price`).
 
 Time advances by scheduled due dates rather than calendar days. Three events can occur in any order, each accepted only when it makes sense:
@@ -73,7 +75,7 @@ The buyer misses due date 1 (incurring a penalty of **2**), pays **56** before d
 - **`contractCorrect`:** Settlement collects only the unpaid sale price (**56**). The bank receives **112** in total, and **2** remains owed to charity.
 - **`contractSettleWithPenalty`:** Settlement sweeps both the unpaid price (**56**) and unpaid penalty (**2**) into the bank's account. The bank receives **114** (**2** above the fixed contract price) and charity receives **0**.
 
-## Formalised Theorems (`Murabaha.lean`)
+## Formalised Theorems (`Murabaha/Theorems.lean`)
 
 | Theorem | What It Proves |
 |---|---|
@@ -112,7 +114,7 @@ lake exe cache get && lake build
 
 ## Authorship
 
-I designed the contract model, chose the properties and invariants to verify, and wrote the run preservation and invariance proofs. Claude and Gemini drafted the Lean definitions, strengthened invariants, wrote many proofs, and drafted the README. I have reviewed all definitions and theorem statements against the claims stated here.
+I designed the contract model, chose the properties and invariants to verify, and wrote the run preservation and invariance proofs. Claude and Gemini assisted with invariant strengthening, proof structuring, README drafting. I have reviewed all definitions and theorem statements against the claims stated here.
 
 ## Contact
 
